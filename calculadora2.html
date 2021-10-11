@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="administrador.html">Administrador</a>
@@ -32,13 +32,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Inventario.html">Inventario</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Utilidades</a>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Utilidades</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
                                 <a class="dropdown-item" href="calculadora1.html">Calculadora de Utilidades</a>
                             </li>
-                            <li><a class="dropdown-item" href="calculadora2.html">Convertir unidades de almacenamiento</a></li>
+                            <li><a class="dropdown-item" href="#">Convertir unidades de almacenamiento</a></li>
 
                         </ul>
                     </li>
@@ -52,14 +52,59 @@
         </div>
     </nav>
 </body>
-
 <hr>
 
-<center>
-    <div class="img">
-        <img src="img/central.jpg">
-    </div>
-</center>
+<div>
+    <BR>
+    <hgroup>
+        <h4 id="titulo">CONVERSOR DE UNIDADES DE DATOS</h4>
+    </hgroup>
+    <BR>
+    <table id="Tb2">
+        <tr>
+            <td><label>Cantidad</label></td>
+            <td><input type="text" id="cantidad" placeholder="Digite cantidad a calcular">
+                <br>
+                <select id="vab1">
+    <option value="B">B</option>
+    <option value="Kb">Kb</option>
+    <option value="Mb">Mb</option>
+    <option value="Gb">Gb</option>
+    <option value="Tb">Tb</option>
+    </select>
+                <label>a</label>
+                <select id="vab2">
+    <option value="B">B</option>
+    <option value="Kb">Kb</option>
+    <option value="Mb">Mb</option>
+    <option value="Gb">Gb</option>
+    <option value="Tb">Tb</option>
+    </select>
+            </td>
+        </tr>
+        <tr>
+            <td><button id="calc">CALCULAR</button></td>
+            <script>
+                document.querySelector('#calc').addEventListener('click', () => {
+                    const cant = parseInt(document.querySelector('#cantidad').value);
+                    const vab1 = parseInt(document.querySelector('#vab1').value);
+                    const vab2 = parseInt(document.querySelector('#vab2').value);
+                    let res;
+
+                    if (vab1 == 'B' && vab2 == 'B') {
+                        res = cant;
+                        console.log(res);
+                        var res1 = parseInt(document.getElementById('resultado').value = res);
+                    }
+
+                });
+            </script>
+        </tr>
+        <td><label>Resultado</label></td>
+        <td><input type="text" id="resultado" placeholder="Resultado" readonly="readonly">
+    </table>
+
+</div>
 <hr>
 <footer>
     <center>
