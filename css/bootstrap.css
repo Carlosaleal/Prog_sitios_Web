@@ -131,6 +131,7 @@ h1,
 
 h2,
 .h2 {
+    text-align-last: center;
     font-size: calc(1.325rem + 0.9vw);
 }
 
@@ -349,23 +350,29 @@ th {
     text-align: -webkit-match-parent;
 }
 
+.espacio {
+    height: 10px;
+}
+
 thead,
 tbody,
 tfoot,
 tr,
 td,
 th {
+    text-align-last: center;
     border-color: inherit;
     border-style: solid;
     border-width: 0;
 }
 
 label {
+    text-align-last: center;
     display: inline-block;
 }
 
 button {
-    border-radius: 0;
+    border-radius: 4;
 }
 
 button:focus:not(:focus-visible) {
@@ -385,6 +392,7 @@ textarea {
 
 button,
 select {
+    text-align-last: center;
     text-transform: none;
 }
 
@@ -5284,6 +5292,7 @@ fieldset:disabled .btn {
 }
 
 .alert {
+    text-align-last: center;
     position: relative;
     padding: 1rem 1rem;
     margin-bottom: 1rem;
