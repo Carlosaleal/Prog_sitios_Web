@@ -10,7 +10,19 @@
     <link rel="stylesheet" href="css\bootstrap.css">
     <!--link rel="stylesheet" href="css\bootstrap-grid.css">-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+      </svg>
 
 </head>
 
@@ -39,7 +51,7 @@
                             <li>
                                 <a class="dropdown-item" href="calculadora1.html">Calculadora de Utilidades</a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Convertir unidades de almacenamiento</a></li>
+                            <li><a class="dropdown-item" href="#">Conversor de unidades de almacenamiento de Datos</a></li>
 
                         </ul>
                     </li>
@@ -56,56 +68,159 @@
 <hr>
 
 <div>
-    <BR>
-    <hgroup>
-        <h4 id="titulo">CONVERSOR DE UNIDADES DE DATOS</h4>
-    </hgroup>
-    <BR>
+    <h4>CONVERSOR DE UNIDADES DE ALMACENAMIENTO DE DATOS</h4>
+    <br>
     <table id="Tb2">
         <tr>
-            <td><label>Cantidad</label></td>
-            <td><input type="text" id="cantidad" placeholder="Digite cantidad a calcular">
-                <br>
-                <select id="vab1">
-    <option value="B">B</option>
-    <option value="Kb">Kb</option>
-    <option value="Mb">Mb</option>
-    <option value="Gb">Gb</option>
-    <option value="Tb">Tb</option>
-    </select>
-                <label>a</label>
-                <select id="vab2">
-    <option value="B">B</option>
-    <option value="Kb">Kb</option>
-    <option value="Mb">Mb</option>
-    <option value="Gb">Gb</option>
-    <option value="Tb">Tb</option>
-    </select>
+            <td><label>De:&nbsp;</label></td>
+            <td>
+                <select name="unidad1" id="unidad1">
+                        <option value="Byte">Byte</option>
+                        <option value="Kb">Kilobyte (Kb)</option>
+                        <option value="Mb">Megabyte (Mb)</option>
+                        <option value="Gb">Gigabyte (Gb)</option>
+                        <option value="Tb">Terabyte (Tb)</option>
+                        <option value="Pb">Petabyte (Pb)</option>
+                    </select>
+            </td>
+            <td>
+                <label>&nbsp;A:&nbsp;</label>
+            </td>
+            <td>
+                <select name="unidad2" id="unidad2">
+                        <option value="Byte">Byte</option>
+                        <option value="Kb">Kilobyte (Kb)</option>
+                        <option value="Mb">Megabyte (Mb)</option>
+                        <option value="Gb">Gigabyte (Gb)</option>
+                        <option value="Tb">Terabyte (Tb)</option>
+                        <option value="Pb">Petabyte (Pb)</option>
+                    </select>
+
+            </td>
+
+        </tr>
+        <tr class="espacio"></tr>
+        <tr class="espacio"></tr>
+
+        <tr>
+            <td>
+                <label>Cantidad a convertir:&nbsp;</label>
+            </td>
+            <td>
+                <input type="text" id="val" size="12" placeholder="Ingrese cantidad">
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <button id="calc" type="button" class="btn btn-success" onclick="calcular()">CONVERTIR</button>
+            </td>
+            <td>
+                <button id="borrar" type="button" class="btn btn-warning" onclick="limpiar()">LIMPIAR</button>
             </td>
         </tr>
-        <tr>
-            <td><button id="calc">CALCULAR</button></td>
-            <script>
-                document.querySelector('#calc').addEventListener('click', () => {
-                    const cant = parseInt(document.querySelector('#cantidad').value);
-                    const vab1 = parseInt(document.querySelector('#vab1').value);
-                    const vab2 = parseInt(document.querySelector('#vab2').value);
-                    let res;
 
-                    if (vab1 == 'B' && vab2 == 'B') {
-                        res = cant;
-                        console.log(res);
-                        var res1 = parseInt(document.getElementById('resultado').value = res);
-                    }
-
-                });
-            </script>
-        </tr>
-        <td><label>Resultado</label></td>
-        <td><input type="text" id="resultado" placeholder="Resultado" readonly="readonly">
     </table>
+    <br>
+    <script language="javascript">
+        function calcular() {
+            //validacion de que se haya ingresado un valor
+            if (document.getElementById("val").value == 0) {
+                swal("ERROR !!!", "Debe ingresar un valor antes de presionar el boton CALCULAR", "error");
+                return;
+            }
+
+
+
+            var valor = document.getElementById("val").value;
+
+            // Validacion de que el valor ingresado sea un numero
+            if (isNaN(parseInt(valor))) {
+                swal("ERROR !!!", "El valor ingresado debe ser un NUMERO !!!", "error");
+                limpiar();
+                return;
+
+            }
+            var resultado;
+            var factor1;
+            var factor2;
+            switch (document.getElementById("unidad1").value) {
+                case 'Byte':
+                    factor1 = 0;
+                    break;
+                case 'Kb':
+                    factor1 = 10;
+                    break;
+                case 'Mb':
+                    factor1 = 20;
+                    break;
+                case 'Gb':
+                    factor1 = 30;
+                    break;
+                case 'Tb':
+                    factor1 = 40;
+                    break;
+                case 'Pb':
+                    factor1 = 50;
+                    break;
+
+            }
+            resultado = (Math.pow(2, factor1)) * valor; //da el resultado en Bytes inicialmente
+
+            switch (document.getElementById("unidad2").value) {
+                case 'Byte':
+                    factor2 = 0;
+                    break;
+                case 'Kb':
+                    factor2 = 10;
+                    break;
+                case 'Mb':
+                    factor2 = 20;
+                    break;
+                case 'Gb':
+                    factor2 = 30;
+                    break;
+                case 'Tb':
+                    factor2 = 40;
+                    break;
+                case 'Pb':
+                    factor2 = 50;
+                    break;
+            }
+
+            resultado = resultado / (Math.pow(2, factor2)); // convierte el resultado anterior en bytes a la unidad requerida
+            document.getElementById("result1").innerHTML = document.getElementById("val").value + "&nbsp;" + document.getElementById("unidad1").value;
+            document.getElementById("result2").innerHTML = resultado + "&nbsp;" + document.getElementById("unidad2").value;
+            document.getElementById("mensaje").style.display = "block";
+        }
+
+        function limpiar() {
+            document.getElementById("mensaje").style.display = "none";
+            document.getElementById("val").value = null;
+        }
+    </script>
+    <div id="mensaje" class="alert alert-success" role="alert" style="display:none">
+        <p>
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                    <use xlink: href="#check-circle-fill" />
+                    </svg> El resultado es:&nbsp; </p>
+        <div id="result1">
+        </div>
+        Equivale a:
+        <div id="result2">
+        </div>
+        <br>
+        <button id="otro" type="button" class="btn btn-primary" onclick="limpiar()">REINICIAR</button>
+
+    </div>
+
+
+
 
 </div>
+
+
+
 <hr>
 <footer>
     <center>
