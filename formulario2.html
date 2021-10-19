@@ -30,8 +30,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="administrador.html">Administrador</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Inventario</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inventario</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="formulario1.html">Formulario 1_Ingresar producto</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="formulario2.html">Formulario 2_Actualizar producto</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="formulario3.html">Formulario 3_Eliminar producto</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="formulario4.html">Formulario 4_Consultar producto</a>
+                            </li>
+
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Utilidades</a>
@@ -57,9 +72,47 @@
 <hr>
 
 <center>
-    <div class="img">
-        <img src="img/construccion2.png">
-    </div>
+    <div class="container">
+        <h1>Formulario para actualizar un producto</h1>
+
+        <br>
+      
+          <form action="#" method="POST">
+        <div class="form-group">
+            <label for="email">Código de producto:</label>
+            <input type="number" class="form-control" placeholder="Ingrese aquí código de producto" id="email" name="t" style="width:300px">
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="email">Nombre de producto:</label>
+          <input type="text" class="form-control" placeholder="Ingrese aquí nombre de producto" id="email" name="n" style="width:300px">
+        </div>
+        <br>
+        
+        <div class="form-group">
+          <label for="email">Marca del producto:</label>
+          <input type="text" class="form-control" placeholder="Ingrese aquí marca del producto" id="email" name="c" style="width:300px">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="email">Precio de compra:</label>
+            <input type="number" class="form-control" placeholder="Ingrese aquí precio de compra" id="email" name="t" style="width:300px">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="email">Cantidad comprada:</label>
+            <input type="number" class="form-control" placeholder="Ingrese aquí cantidad comprada" id="email" name="t" style="width:300px">
+        </div>
+
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Modificar producto</button>
+     
+      </form>
+      </div>
 </center>
 
 <hr>

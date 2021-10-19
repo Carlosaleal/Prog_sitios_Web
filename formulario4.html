@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track-Inv - Utilidades</title>
+    <title>Track-Inv - Inventario</title>
     <link rel="stylesheet" href="css\Stylesheet.css">
     <link rel="stylesheet" href="css\bootstrap.css">
     <!--link rel="stylesheet" href="css\bootstrap-grid.css">-->
@@ -18,7 +18,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="img\logo_small.jpg" alt="" width="100" height="60" class="d-inline-block align-text-bottom">Utilidades</a>
+            <a class="navbar-brand" href="#"><img src="img\logo_small.jpg" alt="" width="100" height="60" class="d-inline-block align-text-bottom">Inventario</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -48,11 +48,11 @@
 
                         </ul>
                     </li>
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Utilidades</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Utilidades</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
-                                <a class="dropdown-item" href="#">Calculadora de Utilidades</a>
+                                <a class="dropdown-item" href="calculadora1.html">Calculadora de Utilidades</a>
                             </li>
                             <li><a class="dropdown-item" href="calculadora2.html">Conversor de unidades de almacenamiento de Datos</a></li>
 
@@ -70,65 +70,26 @@
 </body>
 
 <hr>
-<article>
-    <div>
+
+<center>
+    <div class="container">
+        <h1>Formulario para consultar un producto</h1>
+
         <br>
+      
+          <form action="#" method="POST">
+        <div class="form-group">
+            <label for="email">Código de producto:</label>
+            <input type="number" class="form-control" placeholder="Ingrese aquí código de producto" id="email" name="t" style="width:300px">
+        </div>
 
-        <hgroup>
-            <h4 id="titulo">CALCULADORA DE UTILIDADES</h4>
-        </hgroup>
         <br>
-        <table id="Tb2">
-            <tr>
-                <td><label>Valor de compra</label></td>
-                <td><input type="text" id="valor" placeholder="Digite valor de compra"></td>
-            </tr>
-            <tr>
-                <td><label>% utilidad o ganancia</label></td>
-                <td><input type="text" id="utilidad" placeholder="Digite el porcentaje"></td>
-            </tr>
-            <tr>
-                <td><label>% IVA</label></td>
-                <td><input type="text" id="iva" placeholder="Digite porcentaje"></td>
-            </tr>
-            <tr>
-                <td><button id="calcular">CALCULAR</button></td>
-                <script>
-                    document.querySelector('#calcular').addEventListener('click', () => {
-                        const n1 = parseInt(document.querySelector('#valor').value);
-                        const n2 = parseInt(document.querySelector('#utilidad').value);
-                        const n3 = parseInt(document.querySelector('#iva').value);
-                        let r;
-                        let r1;
-                        let r2;
-
-                        r = n1 * n2 / 100;
-                        r1 = n1 * n3 / 100;
-                        r2 = n1 + r + r1;
-
-                        var result1 = parseInt(document.getElementById('ganancia').value = r);
-                        var result = parseInt(document.getElementById('precio').value = r2);
-
-
-                        console.log(r);
-                        console.log(r1);
-                        console.log(r2);
-
-                    });
-                </script>
-            </tr>
-            <tr>
-                <td><label>Valor de venta</label></td>
-                <td><input type="text" id="precio" placeholder="Valor de venta" readonly="readonly"></td>
-            </tr>
-            <tr>
-                <td><label>Ganancia</label></td>
-                <td><input type="text" id="ganancia" placeholder="Ganancia" readonly="readonly"></td>
-            </tr>
-        </table>
-
-    </div>
-</article>
+        <br>
+        <button type="submit" class="btn btn-primary">Consultar producto</button>
+     
+      </form>
+      </div>
+</center>
 
 <hr>
 <footer>
